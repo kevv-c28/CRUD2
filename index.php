@@ -1,6 +1,6 @@
 <?php
 
-include 'db.php';
+include 'bd.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -32,7 +32,7 @@ include 'db.php';
                     </thead>
                     <tbody>
                         <?php
-                        //aquí es para la consulta de la conexión SQL para que no te olvides
+                        //aquí es para la consulta de la conexión SQL para que no me olvide
                         $sql = "SELECT * FROM usuarios ORDER BY id ASC";
                         $resultado = pg_query($conexion, $sql);
 
@@ -41,15 +41,16 @@ include 'db.php';
                             "</td>
                             </tr>";
                         } else {
-
                             while ($row = pg_fetch_assoc($resultado)) {
+                                echo "<tr>";
                                 echo "<td>" . $row['id'] . "</td>";
                                 echo "<td>" . htmlspecialchars($row['nombre']) . "</td>";
                                 echo "<td>" . htmlspecialchars($row['email']) . "</td>";
+                                echo "<td>";
                                 echo "<a href='editar.php?id=" . $row['id'] . "' class='btn btn-primary btn-sm'>Editar</a> ";
                                 echo "<a href='borrar.php?id=" . $row['id'] . "' class='btn btn-danger btn-sm'>Borrar</a>";
-                               /*  echo "</td>";
-                                echo "</tr>"; */
+                                echo "</td>";
+                                echo "</tr>"; 
                             }
                         }
 

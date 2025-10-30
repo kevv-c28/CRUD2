@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+include 'bd.php';
 $nombre = '';
 $email = '';
 $id = '';
